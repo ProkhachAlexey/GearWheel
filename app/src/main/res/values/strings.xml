@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">GearWheel</string>
+    <string name="calculate">Рассчитать</string>
+    <string name="module">m:</string>
+    <string name="wheel">z:</string>
+    <string name="degree_of_accuracy">Степень точности:</string>
+    <string name="type_of_conjugation">Вид сопряжения:</string>
+    <string name="bias_factor">x:</string>
+    <string name="tilt_angle"> &#946;:</string>
+</resources>
