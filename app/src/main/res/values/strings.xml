@@ -7,4 +7,7 @@
     <string name="type_of_conjugation">Вид сопряжения:</string>
     <string name="bias_factor">x:</string>
     <string name="tilt_angle"> &#946;:</string>
+    <string name="roller_diameter">dp:</string>
+    <string name="calculated">Расчетное</string>
+    <string name="value">значение</string>
 </resources>
