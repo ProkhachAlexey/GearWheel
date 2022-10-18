@@ -1,4 +1,4 @@
-package com.prokhach.gearwheel
+package com.prokhach.gearwheel.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
