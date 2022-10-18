@@ -10,4 +10,5 @@
     <string name="roller_diameter">dp:</string>
     <string name="calculated">Расчетное</string>
     <string name="value">значение</string>
+    <string name="calculated_value">Расчетное значение</string>
 </resources>
