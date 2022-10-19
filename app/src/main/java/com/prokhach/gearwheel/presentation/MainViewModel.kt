@@ -16,6 +16,10 @@ class MainViewModel : ViewModel() {
         wheelLiveData.value = wheel
     }
 
+
+
+
+
     @Parcelize
     data class Wheel(
         val module: Double,
@@ -25,5 +29,22 @@ class MainViewModel : ViewModel() {
         val biasFactor: Double,
         val tiltAngle: Int,
         val rollerDiameter: Double
-    ) : Parcelable
+    ) : Parcelable {
+
+        private fun pitchDiameter(module: Double, z: Int, tiltAngle: Int): Double {
+            val angle = angleToRad(tiltAngle)
+            return module * z / Math.cos(angle)
+        }
+
+
+
+    }
+
+    private companion object {
+
+        const val HEAD_HEIGHT_FACTOR = 0.25
+        const val LEVELING_BIAS_FACTOR = 0
+
+        fun angleToRad(angle: Int): Double = angle * Math.PI / 180.0
+    }
 }
