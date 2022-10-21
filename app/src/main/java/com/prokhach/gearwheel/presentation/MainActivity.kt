@@ -1,8 +1,8 @@
 package com.prokhach.gearwheel.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.prokhach.gearwheel.databinding.ActivityMainBinding
 
@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
-//    private lateinit var wheel: Wheel
+    private lateinit var wheel: Wheel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,22 +18,17 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
         binding.calculateButton.setOnClickListener {
-            Log.d("MainActivity", "some text")
+            wheel = Wheel(
+                binding.etModule.text.toString().toDouble(),
+                binding.etWheel.text.toString().toInt(),
+                binding.etDegreeOfAccuracy.text.toString().toInt(),
+                binding.etTypeOfConjugation.text.toString(),
+                binding.etBiasFactor.text.toString().toDouble(),
+                binding.etTiltAngle.text.toString().toInt(),
+                binding.etRollerDiameter.text.toString().toDouble()
+            )
+            viewModel.wheelLD.value
         }
 
-//        binding.calculateButton.setOnClickListener {
-//            wheel = Wheel(
-//                binding.etModule.text.toString().toDouble(),
-//                binding.etWheel.text.toString().toInt(),
-//                binding.etDegreeOfAccuracy.text.toString().toInt(),
-//                binding.etTypeOfConjugation.text.toString(),
-//                binding.etBiasFactor.text.toString().toDouble(),
-//                binding.etTiltAngle.text.toString().toInt(),
-//                binding.etRollerDiameter.text.toString().toDouble()
-//            )
-//        }
-
     }
-
-
 }

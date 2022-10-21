@@ -1,10 +1,30 @@
 package com.prokhach.gearwheel.presentation
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class MainViewModel : ViewModel() {
+class MainViewModel() : ViewModel() {
 
+    private val wheelMLD = MutableLiveData<Wheel>()
+    val wheelLD: LiveData<Wheel>
+        get() = wheelMLD
 
+    private val wheel = wheelLD.value
+
+    private val rollerDiameter: Double = when(wheel?.module) {
+        0.1 -> 0.173
+        0.2 -> 0.346
+        0.3 -> 0.577
+        0.4 -> 0.722
+        0.5 -> 0.866
+        0.6 -> 0.988
+        0.7 -> 1.155
+        0.8 -> 1.443
+        0.9 -> 1.443
+        1.0 -> 1.732
+        else -> 0.0
+    }
 
 
     private companion object {
