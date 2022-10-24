@@ -6,13 +6,19 @@ import androidx.lifecycle.ViewModel
 
 class MainViewModel() : ViewModel() {
 
-    private val wheelMLD = MutableLiveData<Wheel>()
-    val wheelLD: LiveData<Wheel>
-        get() = wheelMLD
+    private val _wheel = MutableLiveData<Wheel>()
+    val wheel: LiveData<Wheel>
+        get() = _wheel
 
-    private val wheel = wheelLD.value
+    fun saveWheel(wheel: Wheel) {
+        _wheel.value = wheel
+    }
 
-    private val rollerDiameter: Double = when(wheel?.module) {
+    private fun loadWheel(): Wheel {
+        return _wheel.value ?: throw RuntimeException("Object Wheel is not found")
+    }
+
+    private val rollerDiameter: Double = when(loadWheel().module) {
         0.1 -> 0.173
         0.2 -> 0.346
         0.3 -> 0.577
