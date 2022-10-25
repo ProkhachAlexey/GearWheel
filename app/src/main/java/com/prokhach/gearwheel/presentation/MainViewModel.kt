@@ -18,19 +18,19 @@ class MainViewModel() : ViewModel() {
         return _wheel.value ?: throw RuntimeException("Object Wheel is not found")
     }
 
-    private val rollerDiameter: Double = when(loadWheel().module) {
-        0.1 -> 0.173
-        0.2 -> 0.346
-        0.3 -> 0.577
-        0.4 -> 0.722
-        0.5 -> 0.866
-        0.6 -> 0.988
-        0.7 -> 1.155
-        0.8 -> 1.443
-        0.9 -> 1.443
-        1.0 -> 1.732
-        else -> 0.0
-    }
+    fun loadRollerDiameter(): Double = when (loadWheel().module) {
+            0.1 -> 0.173
+            0.2 -> 0.346
+            0.3 -> 0.577
+            0.4 -> 0.722
+            0.5 -> 0.866
+            0.6 -> 0.988
+            0.7 -> 1.155
+            0.8 -> 1.443
+            0.9 -> 1.443
+            1.0 -> 1.732
+            else -> 0.0
+        }
 
 
     private companion object {

@@ -1,11 +1,14 @@
 package com.prokhach.gearwheel.presentation
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Wheel(
-    val module: Double = 0.0,
-    val z: Int = 0,
-    val degreeOfAccuracy: Int = 0,
-    val typeOfConjugation: String = "",
-    val biasFactor: Double = 0.0,
-    val tiltAngle: Int = 0,
-    val rollerDiameter: Double = 0.0
-)
+    val module: Double,
+    val z: Int,
+    val degreeOfAccuracy: Int,
+    val typeOfConjugation: String,
+    val biasFactor: Double,
+    val tiltAngle: Int
+): Parcelable
