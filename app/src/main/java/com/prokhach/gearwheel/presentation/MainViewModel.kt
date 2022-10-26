@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class MainViewModel() : ViewModel() {
+class MainViewModel : ViewModel() {
 
     private val _wheel = MutableLiveData<Wheel>()
     val wheel: LiveData<Wheel>
@@ -16,6 +16,12 @@ class MainViewModel() : ViewModel() {
 
     private fun loadWheel(): Wheel {
         return _wheel.value ?: throw RuntimeException("Object Wheel is not found")
+    }
+
+    fun getEmptyWheel(): Wheel {
+        return Wheel(
+            0.0,0,0,"",0.0,0
+        )
     }
 
     fun loadRollerDiameter(): Double = when (loadWheel().module) {
@@ -33,11 +39,11 @@ class MainViewModel() : ViewModel() {
         }
 
 
-    private companion object {
-
-        const val HEAD_HEIGHT_FACTOR = 0.25
-        const val LEVELING_BIAS_FACTOR = 0
-
-        fun angleToRad(angle: Int): Double = angle * Math.PI / 180.0
-    }
+//    private companion object {
+//
+//        const val HEAD_HEIGHT_FACTOR = 0.25
+//        const val LEVELING_BIAS_FACTOR = 0
+//
+//        fun angleToRad(angle: Int): Double = angle * Math.PI / 180.0
+//    }
 }
